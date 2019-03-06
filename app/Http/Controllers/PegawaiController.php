@@ -12,4 +12,23 @@ class PegawaiController extends Controller {
     	$pegawai = DB::table('pegawai')->get();
     	return view('pegawai.index', ['judul' => $judul, 'pegawai' => $pegawai]);
     }
+
+    // method create
+    public function create() {
+    	$judul = 'Tambah Data Pegawai';
+    	return view('pegawai.create', ['judul' => $judul]);
+    }
+
+    public function store(Request $request) {
+    	DB::table('pegawai')->insert(
+    		[
+    			'nama' => $request->input('nama'),
+    			'jabatan' => $request->input('jabatan'),
+    			'umur' => $request->input('umur'),
+    			'alamat' => $request->input('alamat')
+    		]
+    	);
+
+    	return redirect('pegawai');
+    }
 }
