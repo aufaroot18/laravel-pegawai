@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('pegawai', 'PegawaiController@index');
 Route::get('pegawai/create', 'PegawaiController@create');
 Route::post('pegawai/store', 'PegawaiController@store');
+Route::get('pegawai/{id}/edit', 'PegawaiController@edit');
