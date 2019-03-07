@@ -19,6 +19,7 @@ class PegawaiController extends Controller {
     	return view('pegawai.create', ['judul' => $judul]);
     }
 
+    // Store to DB
     public function store(Request $request) {
     	$validateData = $request->validate([
     		'nama' => 'required',
@@ -37,5 +38,11 @@ class PegawaiController extends Controller {
     	);
 
     	return redirect('pegawai');
+    }
+
+    public function edit($id) {
+        $judul = 'Edit Data Pegawai';
+        $user = DB::table('pegawai')->where('id', $id)->first();
+        return view('pegawai.edit', ['user' => $user, 'judul' => $judul]);
     }
 }
