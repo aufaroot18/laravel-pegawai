@@ -20,6 +20,13 @@ class PegawaiController extends Controller {
     }
 
     public function store(Request $request) {
+    	$validateData = $request->validate([
+    		'nama' => 'required',
+    		'jabatan' => 'required',
+    		'umur' => 'required|numeric',
+    		'alamat' => 'required',
+    	]);
+
     	DB::table('pegawai')->insert(
     		[
     			'nama' => $request->input('nama'),
