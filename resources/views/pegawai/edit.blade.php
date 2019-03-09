@@ -9,6 +9,7 @@
 	<div class="container">
 		<h1 class="text-center mt-5">Edit Data Pegawai</h1>
 		<form action="/pegawai/update" method="POST">
+			@method('PUT')
 			@csrf
 			<div class="form-group">
 				<label for="nama">Nama</label>
@@ -38,7 +39,8 @@
 				    <div class="mt-3 alert alert-danger">{{ $message }}</div>
 				@enderror
 			</div>
-			<button type="submit" class="btn btn-primary btn-block">Tambah Data</button>
+			<input type="hidden" name="id" value="{{$user->id}}">
+			<button type="submit" class="btn btn-primary btn-block">Update Data</button>
 		</form>
 	</div>
 
