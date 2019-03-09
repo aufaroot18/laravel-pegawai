@@ -20,4 +20,4 @@ Route::get('pegawai/create', 'PegawaiController@create');
 Route::post('pegawai/store', 'PegawaiController@store');
 Route::get('pegawai/{id}/edit', 'PegawaiController@edit');
 Route::put('pegawai/update', 'PegawaiController@update');
-Route::get('pegawai/{id}/hapus', 'PegawaiController@destroy');
+Route::delete('pegawai/{id}/hapus', 'PegawaiController@destroy');
