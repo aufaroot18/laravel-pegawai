@@ -34,7 +34,7 @@
 						<td>{{$p->jabatan}}</td>
 						<td>{{$p->umur}}</td>
 						<td>{{$p->alamat}}</td>
-						<td><a href="pegawai/{{$p->id}}/edit" class="btn btn-warning btn-sm">Edit</a> <a href="pegawai/hapus/{{$p->id}}" class="btn btn-danger btn-sm">Hapus</a></td>
+						<td><a href="pegawai/{{$p->id}}/edit" class="btn btn-warning btn-sm">Edit</a> <a href="pegawai/{{$p->id}}/hapus" class="btn btn-danger btn-sm">Hapus</a></td>
 					</tr>
 				@endforeach
 			</tbody>
