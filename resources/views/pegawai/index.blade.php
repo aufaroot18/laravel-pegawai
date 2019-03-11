@@ -9,9 +9,9 @@
 	<div class="container">
 		<h1 class="text-center mt-3">Data Pegawai</h1>
 		<a href="/pegawai/create" class="btn btn-primary mb-2">Tambah Data</a>
-		<form action="" class="form-inline float-right">
+		<form action="/pegawai/search" class="form-inline float-right">
 			<div class="form-group mr-2">
-				<input type="text" class="form-control" placeholder="Search">
+				<input type="text" class="form-control" placeholder="Search" name="search">
 			</div>
 			<button type="submit" class="btn btn-primary">Search</button>
 		</form>
