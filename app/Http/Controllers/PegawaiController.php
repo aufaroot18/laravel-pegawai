@@ -13,7 +13,7 @@ class PegawaiController extends Controller {
     	return view('pegawai.index', ['judul' => $judul, 'pegawai' => $pegawai]);
     }
 
-    // method create
+    // Show create form
     public function create() {
     	$judul = 'Tambah Data Pegawai';
     	return view('pegawai.create', ['judul' => $judul]);
@@ -40,12 +40,14 @@ class PegawaiController extends Controller {
     	return redirect('pegawai');
     }
 
+    // Show edit form
     public function edit($id) {
         $judul = 'Edit Data Pegawai';
         $user = DB::table('pegawai')->where('id', $id)->first();
         return view('pegawai.edit', ['user' => $user, 'judul' => $judul]);
     }
 
+    // Update to Database
     public function update(Request $request) {
         DB::table('pegawai')
             ->where('id', $request->input('id'))
@@ -59,8 +61,21 @@ class PegawaiController extends Controller {
         return redirect('pegawai');
     }
 
+    // Delete data
     public function destroy($id) {
         DB::table('pegawai')->where('id', $id)->delete();
         return redirect('pegawai');
+    }
+
+    // Search data
+    public function search(Request $request) {
+        $judul = 'Halaman Pegawai';
+        $search = $request->input('search');
+        $pegawai = DB::table('pegawai')
+                    ->where('nama', 'like', "%$search%")
+                    ->orWhere('jabatan', 'like', "%$search%")
+                    ->orWhere('alamat', 'like', "%$search%")
+                    ->get();
+        return view('pegawai.index', ['judul' => $judul, 'pegawai' => $pegawai]);
     }
 }
