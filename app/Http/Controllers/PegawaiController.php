@@ -29,14 +29,12 @@ class PegawaiController extends Controller {
     		'alamat' => 'required',
     	]);
 
-    	DB::table('pegawai')->insert(
-    		[
-    			'nama' => $request->input('nama'),
-    			'jabatan' => $request->input('jabatan'),
-    			'umur' => $request->input('umur'),
-    			'alamat' => $request->input('alamat')
-    		]
-    	);
+        Pegawai::create([
+            'nama' => $request->input('nama'),
+            'jabatan' => $request->input('jabatan'),
+            'umur' => $request->input('umur'),
+            'alamat' => $request->input('alamat')
+        ]);
 
     	return redirect('pegawai');
     }
