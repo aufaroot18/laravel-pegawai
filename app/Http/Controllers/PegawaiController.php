@@ -48,15 +48,13 @@ class PegawaiController extends Controller {
 
     // Update to Database
     public function update(Request $request) {
-        DB::table('pegawai')
-            ->where('id', $request->input('id'))
-            ->update([
-                'nama' => $request->input('nama'),
-                'jabatan' => $request->input('jabatan'),
-                'umur' => $request->input('umur'),
-                'alamat' => $request->input('alamat'),
-            ]);
-
+        Pegawai::where('id', $request->input('id'))->update([
+            'nama' => $request->input('nama'),
+            'jabatan' => $request->input('jabatan'),
+            'umur' => $request->input('umur'),
+            'alamat' => $request->input('alamat'),
+        ]);
+        
         return redirect('pegawai');
     }
 
