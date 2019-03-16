@@ -54,13 +54,13 @@ class PegawaiController extends Controller {
             'umur' => $request->input('umur'),
             'alamat' => $request->input('alamat'),
         ]);
-        
+
         return redirect('pegawai');
     }
 
     // Delete data
     public function destroy($id) {
-        DB::table('pegawai')->where('id', $id)->delete();
+        Pegawai::destroy($id);
         return redirect('pegawai');
     }
 
