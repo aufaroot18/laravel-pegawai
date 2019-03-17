@@ -68,11 +68,10 @@ class PegawaiController extends Controller {
     public function search(Request $request) {
         $judul = 'Halaman Pegawai';
         $search = $request->input('search');
-        $pegawai = DB::table('pegawai')
-                    ->where('nama', 'like', "%$search%")
-                    ->orWhere('jabatan', 'like', "%$search%")
-                    ->orWhere('alamat', 'like', "%$search%")
-                    ->get();
+        $pegawai = Pegawai::where('nama', 'like', "%$search%")
+                        ->orWhere('jabatan', 'like', "%$search%")
+                        ->orWhere('alamat', 'like', "%$search%")
+                        ->get();
         return view('pegawai.index', ['judul' => $judul, 'pegawai' => $pegawai]);
     }
 }
