@@ -13,10 +13,12 @@
 
 Route::get('/', 'PegawaiController@index');
 
-Route::get('pegawai', 'PegawaiController@index');
-Route::get('pegawai/create', 'PegawaiController@create');
-Route::post('pegawai/store', 'PegawaiController@store');
-Route::get('pegawai/{id}/edit', 'PegawaiController@edit');
-Route::put('pegawai/update', 'PegawaiController@update');
-Route::delete('pegawai/{id}/hapus', 'PegawaiController@destroy');
-Route::get('pegawai/search', 'PegawaiController@search');
+Route::prefix('pegawai')->group(function() {
+	Route::get('/', 'PegawaiController@index')->name('index');
+	Route::get('create', 'PegawaiController@create')->name('create');
+	Route::post('store', 'PegawaiController@store')->name('store');
+	Route::get('{id}/edit', 'PegawaiController@edit')->name('edit');
+	Route::put('update', 'PegawaiController@update')->name('update');
+	Route::delete('{id}/destroy', 'PegawaiController@destroy')->name('destroy');
+	Route::get('search', 'PegawaiController@search')->name('search');
+});
